@@ -31,9 +31,13 @@ val test5_3 = dates_in_months([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],
 val test5_4 = dates_in_months([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[2,3]) = [(2012,2,28),(2011,3,31)]
 val test5_5 = dates_in_months([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[2,3,4]) = [(2012,2,28),(2011,3,31),(2011,4,28)]
 
-(*
-val test6 = get_nth(["hi", "there", "how", "are", "you"], 2) = "there"
+val test6_1 = get_nth([], 2) = ""
+val test6_2 = get_nth(["hi", "there", "how", "are", "you"], 0) = ""
+val test6_3 = get_nth(["hi", "there", "how", "are", "you"], 2) = "there"
+val test6_4 = get_nth(["hi", "there", "how", "are", "you"], 5) = "you"
+val test6_5 = get_nth(["hi", "there", "how", "are", "you"], 6) = ""
 
+(*
 val test7 = date_to_string((2013, 6, 1)) = "June 1, 2013"
 
 val test8 = number_before_reaching_sum(10, [1,2,3,4,5]) = 3
