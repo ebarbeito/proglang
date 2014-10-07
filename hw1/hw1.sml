@@ -61,14 +61,6 @@ fun dates_in_month (dates : (int * int * int) list, month : int) =
 		else ans
 	end
 
-fun dates_in_month2(dates : (int * int * int) list, month : int) =
-	if null dates
-	then []
-	else let val ans = if #2 (hd dates) = month then [hd dates] else []
-	in
-		ans @ dates_in_month(tl dates, month)
-	end
-
 (*
  * Write a function dates_in_months that takes a list of dates and a list of
  * months (i.e., an int list) and returns a list holding the dates from the
