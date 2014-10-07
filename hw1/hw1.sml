@@ -108,7 +108,8 @@ fun get_nth (strs : string list, n : int) =
  * June, July, August, September, October, November, December.
  *)
 fun date_to_string (date : int * int * int) =
-	let val strmonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+	let val strmonths = ["January", "February", "March", "April", "May", "June", "July",
+	                     "August", "September", "October", "November", "December"]
 	in
 		get_nth(strmonths, #2 date) ^ " " ^ Int.toString(#3 date) ^ ", " ^ Int.toString(#1 date)
 	end
@@ -126,4 +127,16 @@ fun number_before_reaching_sum (sum : int, numbers : int list) =
 	if sum <= hd numbers
 	then 0
 	else 1 + number_before_reaching_sum(sum - hd numbers, tl numbers)
+
+(*
+ * Write a function what_month that takes a day of year (i.e., an int between
+ * 1 and 365) and returns what month that day is in (1 for January, 2 for
+ * February, etc.). Use a list holding 12 integers and your answer to the
+ * previous problem.
+ *)
+fun what_month (day : int) =
+	let val days_in_months = [31,28,31,30,31,30,31,31,30,31,30,31]
+	in
+		1 + number_before_reaching_sum(day, days_in_months)
+	end
 

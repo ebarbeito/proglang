@@ -43,9 +43,11 @@ val test7_2 = date_to_string((2013, 12, 31)) = "December 31, 2013"
 val test8_1 = number_before_reaching_sum(10, [1,2,3,4,5]) = 3
 val test8_2 = number_before_reaching_sum(13, [1,2,3,6,1,4,7]) = 4
 
-(*
-val test9 = what_month(70) = 3
+val test9_1 = what_month(1) = 1
+val test9_2 = what_month(365) = 12
+val test9_3 = what_month(70) = 3
 
+(*
 val test10 = month_range(31, 34) = [1,2,2,2]
 
 val test11 = oldest([(2012,2,28),(2011,3,31),(2011,4,28)]) = SOME (2011,3,31)*)
