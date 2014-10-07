@@ -127,10 +127,7 @@ fun number_before_reaching_sum (sum : int, numbers : int list) =
  * previous problem.
  *)
 fun what_month (day : int) =
-	let val days_in_months = [31,28,31,30,31,30,31,31,30,31,30,31]
-	in
-		1 + number_before_reaching_sum(day, days_in_months)
-	end
+	1 + number_before_reaching_sum(day, [31,28,31,30,31,30,31,31,30,31,30,31])
 
 (*
  * Write a function month_range that takes two days of the year day1 and day2
