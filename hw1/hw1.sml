@@ -16,7 +16,7 @@ fun uniq (l : int list) =
 	in
 	if contains(ans, hd l)
 	then ans
-		else hd(l) :: ans
+	else hd(l) :: ans
 	end
 
 (*
@@ -184,8 +184,8 @@ fun oldest (dates : (int * int * int) list) =
 fun number_in_months_challenge (dates : (int * int * int) list, months : int list) =
 	number_in_months(dates, uniq months)
 
-(*fun dates_in_months_challenge (dates : (int * int * int) list, months : int list) =
-	*)
+fun dates_in_months_challenge (dates : (int * int * int) list, months : int list) =
+	dates_in_months(dates, uniq months)
 
 (*
  * Challenge Problem: Write a function reasonable_date that takes a date and
