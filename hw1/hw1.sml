@@ -197,7 +197,8 @@ fun number_in_months_challenge (dates : (int * int * int) list, months : int lis
  *)
 fun reasonable_date (date : (int * int * int)) =
 	(* is day valid in that month? *)
-	let fun reasonable_day (month : int, day : int) =
+	let fun reasonable_day (month : int, day : int, is_leap : bool) =
+		(* get the n-th number in a list *)
 		let fun get_nth (numbers : int list, n : int) =
 			if n < 1 orelse null numbers
 			then 0
@@ -205,10 +206,16 @@ fun reasonable_date (date : (int * int * int)) =
 			then hd numbers
 			else get_nth(tl numbers, n-1)
 		in
-			if day > 0 andalso day <= get_nth([31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31], month)
+			if month = 2 andalso day = 29 andalso is_leap
+			then true
+			else if day > 0 andalso day <= get_nth([31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31], month)
 			then true
 			else false
 		end
+	
+	(* is year leap? *)
+	fun leap_year (year : int) =
+		year mod 400 = 0 orelse (year mod 4 = 0 andalso year mod 100 <> 0)
 	
 	val year = #1 date
 	val month = #2 date
@@ -220,7 +227,7 @@ fun reasonable_date (date : (int * int * int)) =
 		then false
 		else if month < MIN orelse month > MAX
 		then false
-		else if not(reasonable_day(month, day))
+		else if not(reasonable_day(month, day, leap_year year))
 		then false
 		else true
 	end
