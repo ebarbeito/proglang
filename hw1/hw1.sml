@@ -155,3 +155,34 @@ fun oldest (dates : (int * int * int) list) =
 		else SOME(hd dates)
 	end
 
+(*
+ * Challenge Problem: Write functions number_in_months_challenge and
+ * dates_in_months_challenge that are like your solutions to problems 3 and 5
+ * except having a month in the second argument multiple times has no more
+ * effect than having it once. (Hint: Remove duplicates, then use previous
+ * work.)
+ *)
+fun number_in_months_challenge (dates : (int * int * int) list, months : int list) =
+	(* is 'n' contained in 'l'? *)
+	let fun contains (l : int list, n : int) =
+		if null l
+		then false
+		else if hd l = n
+		then true
+		else contains(tl l, n)
+	in
+		(* return a list of uniq items *)
+		let fun uniq (l : int list) =
+			if null l
+			then l
+			else let val ans = uniq(tl l)
+			in
+				if contains(ans, hd l)
+				then ans
+				else hd(l) :: ans
+			end
+		in
+			number_in_months(dates, uniq months)
+		end
+	end
+
