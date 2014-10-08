@@ -62,7 +62,12 @@ val test12_2 = number_in_months_challenge([],[2,3,4,2,3]) = 0
 val test12_3 = number_in_months_challenge([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[]) = 0
 val test12_4 = number_in_months_challenge([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[2,3,4,2,3]) = 3
 val test12_5 = number_in_months_challenge([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[2,3,4,12,2,3,12]) = 4
-
+(*val test12_6 = dates_in_months_challenge([],[]) = []
+val test12_7 = dates_in_months_challenge([],[2,3,4,2,3]) = []
+val test12_8 = dates_in_months_challenge([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[]) = []
+val test12_9 = dates_in_months_challenge([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[2,3,2]) = [(2012,2,28),(2011,3,31)]
+val test12_10 = dates_in_months_challenge([(2012,2,28),(2013,12,1),(2011,3,31),(2011,4,28)],[2,3,4,2,3]) = [(2012,2,28),(2011,3,31),(2011,4,28)]
+*)
 val test13_1 = reasonable_date((0,0,0)) = false
 val test13_2 = reasonable_date((1970,0,0)) = false
 val test13_3 = reasonable_date((0,1,0)) = false
